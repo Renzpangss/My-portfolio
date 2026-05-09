@@ -1,0 +1,239 @@
+/* about.css */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Georgia, serif;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    background:black;
+    color:white;
+    min-height:100vh;
+    padding:0; 
+}
+
+/* 
+   CONTAINER - FULL SCREEN
+ */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    border:2px solid #32CD32;
+    background:#111;
+    overflow:hidden;
+}
+
+/* =========================
+   TOP SECTION
+========================= */
+
+.top{
+    background:#32CD32;
+    padding:30px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    min-height:220px;
+    gap:20px;
+}
+
+.left{
+    flex:1;
+    z-index:2;
+}
+
+.left h2{
+    font-size:clamp(28px, 3vw, 52px);
+    color:white;
+    line-height:1.2;
+}
+
+.left p{
+    margin-top:10px;
+    color:white;
+    font-size:clamp(16px, 1.5vw, 24px);
+}
+
+.right{
+    flex:1;
+    text-align:right;
+    z-index:2;
+}
+
+.right p{
+    margin:10px 0;
+    font-size:clamp(14px, 1.2vw, 20px);
+    color:white;
+}
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.profile{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    z-index:1;
+}
+
+.profile img{
+    width:clamp(120px, 12vw, 200px);
+    height:clamp(120px, 12vw, 200px);
+    border-radius:50%;
+    border:5px solid black;
+    object-fit:cover;
+    background:#32CD32;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+    padding:50px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    margin-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+    padding-bottom:30px;
+}
+
+.grid:last-of-type{
+    border-bottom:none;
+}
+
+h3{
+    color:#32CD32;
+    margin-bottom:15px;
+    font-size:clamp(28px, 2.5vw, 48px);
+}
+
+.content p{
+    line-height:1.8;
+    font-size:clamp(15px, 1.2vw, 22px);
+}
+
+ul{
+    padding-left:25px;
+}
+
+li{
+    margin-bottom:12px;
+    line-height:1.7;
+    font-size:clamp(15px, 1.2vw, 22px);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.back{
+    text-align:right;
+    margin-top:20px;
+}
+
+.back a{
+    text-decoration:none;
+    background:#32CD32;
+    color:white;
+    padding:14px 30px;
+    border-radius:30px;
+    transition:0.3s;
+    display:inline-block;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.back a:hover{
+    background:white;
+    color:#32CD32;
+}
+
+/* =========================
+   LAPTOP / TABLET
+========================= */
+
+@media (max-width: 992px){
+
+    .top{
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding-top:170px;
+        padding-bottom:40px;
+        min-height:auto;
+    }
+
+    .profile{
+        top:20px;
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .left,
+    .right{
+        flex:none;
+        width:100%;
+        text-align:center;
+    }
+
+    .content{
+        padding:35px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .back{
+        text-align:center;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px){
+
+    .top{
+        padding:150px 20px 30px;
+    }
+
+    .profile img{
+        width:100px;
+        height:100px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    ul{
+        padding-left:20px;
+    }
+
+    .back a{
+        width:100%;
+        text-align:center;
+        padding:12px 20px;
+    }
+}
