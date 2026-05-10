@@ -37,8 +37,7 @@ section{
     border-radius: 15px;
     height: 50px;
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+   background: rgba(20,20,20,0.9);
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: fixed;
     z-index: 1000;
@@ -100,6 +99,17 @@ span{
     border-radius: 50%;
     border: 3px solid #32CD32;
     object-fit: cover;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.home-img img:hover{
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 10px #32CD32,
+        0 0 20px rgba(50,205,50,0.6),
+        0 0 40px rgba(50,205,50,0.4);
 }
 
 .home-content{
@@ -150,6 +160,7 @@ span{
 
     background-color: transparent;
     color: #32CD32;
+
 }
 .home-content .cta2:hover{
 
@@ -201,7 +212,7 @@ span{
 
 .tools img{
     margin-top: 10px;
-    transition: 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .tools img:hover{
@@ -236,6 +247,7 @@ span{
 
     background-color: transparent;
     color: #32CD32;
+    
 }
 /* EDUCATION */
 
@@ -553,7 +565,7 @@ span{
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
     opacity: 0;
-    transition: 0.4s ease;
+   transition: transform 0.4s ease;
     z-index: 1;
 }
 
@@ -573,7 +585,7 @@ span{
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: 0.4s ease;
+     transition: transform 0.4s ease;
     z-index: 2;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
@@ -740,7 +752,7 @@ span{
     font-size: 17px;
     outline: none;
     font-family: 'Bree Serif', serif;
-    transition: 0.3s ease;
+     transition: transform 0.4s ease;
 }
 
 .contact-form textarea{
