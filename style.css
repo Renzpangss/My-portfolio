@@ -57,10 +57,26 @@ nav li a{
     margin-left: 40px;
     position: relative;
 }
+nav li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: #32CD32;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
 
 nav li a:hover{
     color: #32CD32;
 }
+
+nav li a:hover::after{
+    width: 100%;
+}
+    
 
 /* GRADIENT TEXT */
 
@@ -118,6 +134,7 @@ span{
     border: 1px solid #32CD32;
     color: #ffffff;
     border-radius: 20px;
+    transition: 0.3s;
 }
 
 .home-content .cta2{
@@ -127,8 +144,18 @@ span{
     color: #32CD32;
     border-radius: 20px;
     margin-left: 10px;
+    transition: 0.3s;
 }
+.home-content .cta1:hover{
 
+    background-color: transparent;
+    color: #32CD32;
+}
+.home-content .cta2:hover{
+
+    background-color: #32CD32 ;
+    color: white;
+}
 /* ABOUT */
 
 .ABOUT{
@@ -203,8 +230,13 @@ span{
     color: #ffffff;
     border-radius: 20px;
     margin-left: 500px;
+    transition: 0.3s;
 }
+.read-btn:hover{
 
+    background-color: transparent;
+    color: #32CD32;
+}
 /* EDUCATION */
 
 
@@ -437,6 +469,166 @@ span{
     text-align: center; /* Centered as per Figma layout */
     opacity: 0.9;
 }
+/* =========================
+   PROJECT SECTION
+========================= */
+
+.PROJECT {
+    padding: 60px 15%;
+    background-color: #000;
+}
+
+.project-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    justify-items: center;
+}
+
+/* PROJECT CARD */
+.p-card {
+    background-color: transparent;
+    border: 2.5px solid #14330a;
+    border-radius: 18px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s ease;
+}
+
+/* CARD HOVER */
+.p-card:hover {
+    border-color: #32CD32;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(50, 205, 50, 0.15);
+}
+
+/* IMAGE CONTAINER */
+.p-banner {
+    width: 100%;
+    height: 220px;
+    background-color: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #14330a;
+    position: relative;
+}
+
+/* MAKE THE LINK COVER THE WHOLE IMAGE */
+.p-banner a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* PROJECT IMAGE */
+.p-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* IMAGE ZOOM ON HOVER */
+.p-card:hover .p-banner img {
+    transform: scale(1.08);
+}
+
+/* DARK OVERLAY */
+.p-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 1;
+}
+
+/* LIVE PREVIEW BUTTON */
+.p-banner a::after {
+    content: "🔗 Live Preview";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #32CD32;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* SHOW OVERLAY + BUTTON ON HOVER */
+.p-card:hover .p-banner::before {
+    opacity: 1;
+}
+
+.p-card:hover .p-banner a::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* TITLE */
+.p-card h3 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* DESCRIPTION */
+.p-card p {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .PROJECT {
+        padding: 60px 6%;
+    }
+
+    .project-title {
+        font-size: 36px;
+    }
+
+    .p-card {
+        padding: 20px;
+    }
+
+    .p-banner {
+        height: 180px;
+    }
+}
 
 /* CONTACT SECTION */
 
@@ -524,6 +716,18 @@ span{
     flex-direction: column;
     gap: 22px;
 }
+
+/* ICON HOVER EFFECT ONLY */
+.icon img{
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.icon img:hover{
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 10px #32CD32);
+}
+
 
 .contact-form input,
 .contact-form textarea{
@@ -817,38 +1021,62 @@ body {
 
     .menu-toggle {
         display: block;
+        font-size: 32px;
+        color: white;
+        cursor: pointer;
+        order: 1;
     }
 
     .navs {
         width: calc(100% - 20px);
         left: 10px;
         right: 10px;
+        top: 10px;
         padding: 12px 15px;
         height: auto;
-        flex-wrap: wrap;
         position: fixed;
-        top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border-radius: 15px;
     }
 
+    /* Portfolio name centered */
     .navs h1 {
+        flex: 1;
+        text-align: center;
         font-size: 18px;
+        margin: 0;
+        order: 2;
     }
 
-    /* Hide nav by default */
+    /* Hamburger icon on the left */
+    .menu-toggle {
+        order: 1;
+    }
+
+    /* Hidden checkbox */
+    #menu {
+        display: none;
+    }
+
+    /* Navigation menu */
     nav {
+        order: 3;
         width: 100%;
         max-height: 0;
         overflow: hidden;
         transition: 0.3s ease;
     }
 
-    /* Show nav when checkbox is checked */
+    /* Show menu when checked */
     #menu:checked ~ nav {
         max-height: 300px;
-        margin-top: 10px;
+        margin-top: 15px;
     }
 
-    /* Stack menu links vertically */
+    /* Stack links vertically */
     nav ul li {
         display: flex;
         flex-direction: column;
@@ -864,9 +1092,8 @@ body {
         font-size: 16px;
     }
 
-    /* Push home content down */
+    /* Push content below fixed nav */
     .HOME {
         padding-top: 170px;
     }
 }
-
